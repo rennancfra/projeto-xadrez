@@ -12,7 +12,12 @@ namespace jogo_xadrez_console
     {
         static void Main(string[] args)
         {
-            try
+            PosicaoXadrez pos = new PosicaoXadrez('a', 1);
+
+            Console.WriteLine(pos.toPosicao());
+
+            Console.ReadLine();
+            /*try
             {
 
             
@@ -31,7 +36,7 @@ namespace jogo_xadrez_console
 
                 Console.Write(e.Message);
             }
-            Console.ReadKey();
+            Console.ReadKey();*/
         }
     }
 }
