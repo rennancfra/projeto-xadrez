@@ -7,7 +7,7 @@ namespace jogo_xadrez_console
     {
         public static void imprimirTabuleiro(Tabuleiro.Tabuleiro tab)
         {
-            for (int i = 0; i < tab.linha; i++)
+            for (int i = 0; i < tab.linhas; i++)
             {
                 for (int j = 0; j < tab.colunas; j++)
                 {
