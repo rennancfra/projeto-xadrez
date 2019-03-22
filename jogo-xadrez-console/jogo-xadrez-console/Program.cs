@@ -13,7 +13,7 @@ namespace jogo_xadrez_console
         {
             Tabuleiro.Tabuleiro tab = new Tabuleiro.Tabuleiro(8, 8);
 
-
+            Tela.imprimirTabuleiro(tab);
 
             Console.ReadKey();
         }
