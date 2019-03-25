@@ -1,5 +1,6 @@
 ﻿using System;
 using Tabuleiro;
+using Xadrez;
 
 namespace jogo_xadrez_console
 {
@@ -12,23 +13,62 @@ namespace jogo_xadrez_console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if (tab.peca(i,j) == null)
-                    {
-                        Console.Write("- ");
-                    }
-                    else
-                    {
                         Tela.imprimirPeca(tab.peca(i, j));
                         Console.Write(" ");
-
-                    }
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("  a b c d e f g h");
+            Console.WriteLine("  a  b  c  d  e  f  g  h");
+            Console.WriteLine();
+        }
+
+        public static void imprimirTabuleiro(Tabuleiro.Tabuleiro tab, bool[,] posicoesPossiveis)
+        {
+            ConsoleColor fundoOriginal = Console.BackgroundColor;
+            ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
+
+            for (int i = 0; i < tab.linhas; i++)
+            {
+                
+
+                Console.Write(8 - i + " ");
+                for (int j = 0; j < tab.colunas; j++)
+                {
+                    if (posicoesPossiveis[i,j] == true)
+                    {
+                        Console.BackgroundColor = fundoAlterado;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = fundoOriginal;
+                    }
+                    Tela.imprimirPeca(tab.peca(i, j));
+                    Console.BackgroundColor = fundoOriginal;
+                    Console.Write(" ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("  a  b  c  d  e  f  g  h");
+            Console.WriteLine();
+            Console.BackgroundColor = fundoOriginal;
+        }
+
+
+
+        public static PosicaoXadrez lerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+            return new PosicaoXadrez(coluna, linha);
         }
         public static void imprimirPeca(Peca peca)
         {
+            if (peca == null)
+            {
+                Console.Write("- ");
+            }
+            else { 
             if (peca.cor == Cor.Branca)
             {
                 Console.Write(peca);
@@ -39,6 +79,8 @@ namespace jogo_xadrez_console
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(peca);
                 Console.ForegroundColor = aux;
+            }
+                Console.Write(" ");
             }
         }
     }
