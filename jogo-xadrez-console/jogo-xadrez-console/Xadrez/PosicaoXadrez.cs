@@ -1,9 +1,10 @@
-﻿using System;
-using Tabuleiro;
-namespace Xadrez
+﻿using Tabuleiro;
+
+namespace jogo_xadrez_console
 {
     class PosicaoXadrez
     {
+
         public char coluna { get; set; }
         public int linha { get; set; }
 

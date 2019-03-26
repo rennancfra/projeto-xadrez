@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tabuleiro;
-using Xadrez;
 
 namespace jogo_xadrez_console
 {
@@ -12,38 +7,33 @@ namespace jogo_xadrez_console
     {
         static void Main(string[] args)
         {
-            /*PosicaoXadrez pos = new PosicaoXadrez('a', 1);
 
-            Console.WriteLine(pos.toPosicao());
-
-            Console.ReadLine();*/
             try
             {
-
-
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
                 while (!partida.terminada)
                 {
+
                     try
                     {
-
-
                         Console.Clear();
                         Tela.imprimirPartida(partida);
 
+                        Console.WriteLine();
                         Console.Write("Origem: ");
                         Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
-                        partida.validarPosicaoOrigem(origem);
+                        partida.validarPosicaoDeOrigem(origem);
 
                         bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
 
                         Console.Clear();
                         Tela.imprimirTabuleiro(partida.tab, posicoesPossiveis);
 
+                        Console.WriteLine();
                         Console.Write("Destino: ");
                         Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
-                        partida.validarPosicaoDestino(origem, destino);
+                        partida.validarPosicaoDeDestino(origem, destino);
 
                         partida.realizaJogada(origem, destino);
                     }
@@ -53,17 +43,15 @@ namespace jogo_xadrez_console
                         Console.ReadLine();
                     }
                 }
-
-                Tela.imprimirTabuleiro(partida.tab);
-
-
+                Console.Clear();
+                Tela.imprimirPartida(partida);
             }
             catch (TabuleiroException e)
             {
-
-                Console.Write(e.Message);
+                Console.WriteLine(e.Message);
             }
-            Console.ReadKey();
+
+            Console.ReadLine();
         }
     }
 }
