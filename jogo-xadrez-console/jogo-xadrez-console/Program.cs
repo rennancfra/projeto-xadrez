@@ -1,7 +1,7 @@
 ﻿using System;
 using Tabuleiro;
 
-namespace jogo_xadrez_console
+namespace Xadrez
 {
     class Program
     {

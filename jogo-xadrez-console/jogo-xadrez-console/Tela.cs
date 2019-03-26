@@ -2,7 +2,7 @@
 using Tabuleiro;
 using System.Collections.Generic;
 
-namespace jogo_xadrez_console
+namespace Xadrez
 {
     class Tela
     {
